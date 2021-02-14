@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # Added the blog path to the projects urls to look for
     path("", include("blog.urls")),
 ]
