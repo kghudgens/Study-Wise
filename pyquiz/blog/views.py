@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView
+from .models import Post
 
 
 def index(request):
@@ -8,3 +9,8 @@ def index(request):
 
 def about(request):
     return render(request, "blog/about.html")
+
+
+class BlogList(ListView):
+    model = Post
+    template_name = "blog/blog.html"
