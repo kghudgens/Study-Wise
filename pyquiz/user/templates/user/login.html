@@ -1,0 +1,16 @@
+{%extends 'blog/base.html'%}
+{% load crispy_forms_tags %}
+
+{%block content%}
+<!-- Form for logging in  -->
+<main class="form-signin">
+    <form method="POST">
+        {%csrf_token%}
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        {{form | crispy}}
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+    </form>
+  </main>
+  
+{%endblock content%}
