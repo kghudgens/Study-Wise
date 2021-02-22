@@ -36,17 +36,20 @@
               <a class="nav-link" href="#">Quiz</a>
             </li>            
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="{%url 'about'%}">About</a>
             </li>
             <!-- Checks if user is authenticated -->
               {%if user.is_authenticated%}
+              <li class="nav-item">
+                <a class="nav-link" href="{%url 'profile'%}">Profile</a>
+              </li>              
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Log Out</a>
+                  <a class="nav-link" href="{%url 'logout'%}">Log Out</a>
                 </li>
               {%else%}
               <!-- if user is not authenticated display these links -->
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Log In</a>
+                  <a class="nav-link" href="{%url 'login'%}">Log In</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{%url 'register'%}">Register</a>
