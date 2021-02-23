@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-
-from .forms import PyQuizUserForm
+from django.contrib.auth.models import User
+from .forms import UpdateUserForm
 
 # Create your views here.
 def register(request):
@@ -19,4 +19,12 @@ def register(request):
 
 
 def profile(request):
-    return render(request, "user/profile.html")
+    if request.method == "POST":
+        form = UpdateUserForm(request.POST, instance=User)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your profile has been updated")
+            return redirect("profile")
+    else:
+        form = UpdateUserForm()
+    return render(request, "user/profile.html", {"form": form})
