@@ -1,11 +1,22 @@
 {%extends "blog/base.html"%}
 
 {%block content%}
-<a href="{%url 'create'%}">Create</a>
-<h1>Blog</h1>
+<div class="container">
+
+<h1>The PyQuiz Blog</h1>
+{{user.first_name}} do you to want <a href="{%url 'create'%}">create</a> a new post.
+</div>
 
 {% for post in object_list%}
-<li>{{post.title}} {{post.author}}</li>
+<div class="container card">
+    <h5 class="card-header">{{post.title}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{post.author}}</h5>
+      <h6 class="card-title text-muted">{{post.created_on}}</h6>
+      <p class="card-text">{{post.content}}</p>
+      <a href="#" class="btn btn-primary">View Post</a>
+    </div>
+  </div>
 {%empty%}
 <li>No Blog Post Yet</li>
 {%endfor%}
