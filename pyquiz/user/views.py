@@ -20,7 +20,7 @@ def register(request):
 
 def profile(request):
     if request.method == "POST":
-        form = UpdateUserForm(request.POST, instance=User)
+        form = UpdateUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
             messages.success(request, "Your profile has been updated")
