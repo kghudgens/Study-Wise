@@ -1,9 +1,8 @@
 {%extends "blog/base.html"%}
 
 {%block content%}
-<h1>Blog
-
-</h1>
+<a href="#">Create</a>
+<h1>Blog</h1>
 
 {% for post in object_list%}
 <li>{{post.title}} {{post.author}}</li>
