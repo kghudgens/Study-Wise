@@ -2,10 +2,13 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-{{user.username}}
-{{user.email}}
-{{user.first_name}}
-{{user.last_name}}
+
+<div class=" container content-section">
+      <h3 class="account-heading">Name: {{user.first_name}} {{user.last_name}}</h3>
+      <h4 class="account-heading">Username: {{ user.username }}</h4>
+      <p class="text-secondary">Email: {{ user.email }}</p>
+    </div>
+  </div>
 
 <div class="container">
     <main class="form-signin">
