@@ -1,7 +1,7 @@
 {%extends "blog/base.html"%}
 
 {%block content%}
-<a href="#">Create</a>
+<a href="{%url 'create'%}">Create</a>
 <h1>Blog</h1>
 
 {% for post in object_list%}
