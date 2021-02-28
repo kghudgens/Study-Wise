@@ -9,6 +9,10 @@
     <p class="lead">{{posts.content}}</p>
   </div>
 
+{%if user.is_authenticated%}
+<a href="{%url 'post-update' posts.id%}">Update</a>
+{%else%}
+{%endif%}
 
 
 {%endblock content%}
