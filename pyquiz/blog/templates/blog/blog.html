@@ -4,7 +4,11 @@
 <div class="container">
 
 <h1>The PyQuiz Blog</h1>
+{%if user.is_authenticated%}
 {{user.first_name}} do you to want <a href="{%url 'create'%}">create</a> a new post.
+{%else%}
+<p>If you want to create a post of your own please <a href="{%url 'login'%}">Log In</a> </p>
+{%endif%}
 </div>
 
 {% for post in object_list%}
@@ -13,7 +17,7 @@
     <div class="card-body">
       <h5 class="card-title">{{post.author}}</h5>
       <h6 class="card-title text-muted">{{post.created_on}}</h6>
-      <p class="card-text">{{post.content}}</p>
+      <p class="card-text">{{post.content | truncatewords:25}}</p>
       <a href="#" class="btn btn-primary">View Post</a>
     </div>
   </div>
