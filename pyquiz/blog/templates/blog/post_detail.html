@@ -3,10 +3,12 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
+<div class="container">
+    <h1 class="mt-5">{{ posts.title }}</h1>
+    <p class="lead">{{posts.author}} {{posts.created_on}}</p>
+    <p class="lead">{{posts.content}}</p>
+  </div>
 
-<h1>{{ posts.title }}</h1>
-<p>{{ posts.author }}</p>
-<p>{{ posts.created_on }}</p>
-<p> {{ posts.content }}</p>
+
 
 {%endblock content%}
