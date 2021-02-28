@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 
@@ -30,3 +30,12 @@ class CreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse("blog-list")
+
+
+class DetailPostView(DetailView):
+    model = Post
+    template_name = "blog/post_detail.html"
+    context_object_name = "posts"
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
