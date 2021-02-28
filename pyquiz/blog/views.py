@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import (
+    ListView,
+    CreateView,
+    DetailView,
+    UpdateView,
+    DeleteView,
+)
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     LoginRequiredMixin,
@@ -57,6 +63,15 @@ class PostUpdate(
 
     def get_success_url(self):
         return reverse("blog-list")
+
+    def test_func(self):
+        self.object = self.get_object()
+        return self.request.user == self.object.author
+
+
+class DeletePostView(UserPassesTestMixin, DeleteView):
+    model = Post
+    success_url = reverse_lazy("blog-list")
 
     def test_func(self):
         self.object = self.get_object()
