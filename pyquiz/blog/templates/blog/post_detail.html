@@ -10,7 +10,10 @@
   </div>
 
 {%if user.is_authenticated%}
-<a href="{%url 'post-update' posts.id%}">Update</a>
+<div class="container">
+  <a href="{%url 'post-update' posts.id%}">Update</a>
+  <a href="{%url 'post-delete' posts.id%}">Delete</a>
+</div>
 {%else%}
 {%endif%}
 
