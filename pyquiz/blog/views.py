@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Post
 
 
@@ -39,3 +40,14 @@ class DetailPostView(DetailView):
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs)
+
+
+class PostUpdate(SuccessMessageMixin, UpdateView):
+    model = Post
+    fields = ["title", "content"]
+    template_name_suffix = "_update_form"
+
+    success_message = "You have successfully updated your post."
+
+    def get_success_url(self):
+        return reverse("blog-list")
