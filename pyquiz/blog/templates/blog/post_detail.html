@@ -16,6 +16,17 @@
 </div>
 {%else%}
 {%endif%}
+<!-- Comment Section -->
+<div class="container">
+  <main class="form-signin">
+      <form method="POST">
+          {%csrf_token%}
+        <h1 class="h3 mb-3 fw-normal">Comment </h1>
+          {{form|crispy}}
+        <button class="w-15 btn btn-lg btn-primary" type="submit">Comment </button>
+      </form>
+    </main>
+  </div>
 
 
 {%endblock content%}
