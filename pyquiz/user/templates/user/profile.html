@@ -12,6 +12,8 @@
 
 <div class="container">
   <button type="button" id='formbtn'class="btn btn-dark">Update Profile</button>
+  <button type="button" id='closebtn'class="btn btn-dark hidden">Cancel Update</button>          
+
 </div>
 
 <div class="container profile hidden">
@@ -21,9 +23,7 @@
           <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
             {{form|crispy}}
             <br>
-          <button class="w-15 btn btn-lg btn-primary" type="submit">Update </button>
-          <button class="w-15 btn btn-lg btn-primary closebtn">Cancel</button>
-          
+          <button class="w-15 btn btn-lg btn-primary" type="submit">Update </button>          
           <p class="mt-5 mb-3 text-muted">©2021</p>
         </form>
       </main>
