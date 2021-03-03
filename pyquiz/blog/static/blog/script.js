@@ -2,16 +2,21 @@
 // Select the profile div 
 const profileForm = document.querySelector('.profile');
 
-// Function that removes the display style to the form
+// btn that hides form
+const closeBtn = document.getElementById('closebtn')
+console.log(closeBtn);
+
+// Functions that add and removes the hidden class to the form
 function showForm(){
     profileForm.classList.remove('hidden');
-    // BUG
-    const closeBtn = document.querySelector('.closebtn')
-    closeBtn.addEventListener('click', function(){
-        profileForm.classList.add('.hidden')
-        }
-    )
+    closeBtn.classList.remove('hidden')
 }
+
+function addHidden(){
+    profileForm.classList.add('hidden')
+}
+
+closeBtn.addEventListener('click', addHidden)
 
 // Selects the button and store in variable
 const updateProfileBtn = document.getElementById('formbtn');
