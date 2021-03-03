@@ -14,13 +14,16 @@
   <button type="button" id='formbtn'class="btn btn-dark">Update Profile</button>
 </div>
 
-<div class="container profile">
+<div class="container profile hidden">
     <main class="form-signin">
         <form method="POST">
             {%csrf_token%}
           <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
             {{form|crispy}}
+            <br>
           <button class="w-15 btn btn-lg btn-primary" type="submit">Update </button>
+          <button class="w-15 btn btn-lg btn-primary closebtn">Cancel</button>
+          
           <p class="mt-5 mb-3 text-muted">©2021</p>
         </form>
       </main>
