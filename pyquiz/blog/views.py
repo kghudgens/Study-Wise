@@ -7,6 +7,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
     LoginRequiredMixin,
@@ -14,6 +15,7 @@ from django.contrib.auth.mixins import (
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from .models import Post
+from .forms import CommentForm
 
 
 def index(request):
@@ -43,13 +45,22 @@ class CreateView(LoginRequiredMixin, CreateView):
         return reverse("blog-list")
 
 
-class DetailPostView(DetailView):
+class DetailPostView(FormMixin, DetailView):
     model = Post
     template_name = "blog/post_detail.html"
     context_object_name = "posts"
+    form_class = CommentForm
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
 
 class PostUpdate(
