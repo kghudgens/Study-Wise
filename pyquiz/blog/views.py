@@ -51,9 +51,6 @@ class DetailPostView(FormMixin, DetailView):
     context_object_name = "posts"
     form_class = CommentForm
 
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
-
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         form = self.get_form()
@@ -61,6 +58,9 @@ class DetailPostView(FormMixin, DetailView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
+    def get_success_url(self):
+        return reverse("post-detail", kwargs={"pk": self.object.pk})
 
 
 class PostUpdate(
@@ -73,7 +73,7 @@ class PostUpdate(
     success_message = "You have successfully updated your post."
 
     def get_success_url(self):
-        return reverse("blog-list")
+        return reverse("post-detail", kwargs={"pk": self.object.pk})
 
     def test_func(self):
         self.object = self.get_object()
