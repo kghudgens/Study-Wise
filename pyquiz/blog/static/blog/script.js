@@ -1,4 +1,5 @@
 'strict'
+// Js for the profile page
 // Select the profile div 
 const profileForm = document.querySelector('.profile');
 
@@ -23,3 +24,5 @@ const updateProfileBtn = document.getElementById('formbtn');
 
 // stored button now using the showform function on any click action
 updateProfileBtn.addEventListener('click', showForm);
+
+// Post_Detail js
