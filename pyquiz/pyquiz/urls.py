@@ -8,6 +8,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Added the blog path to the projects urls to look for
     path("", include("blog.urls")),
+    path("quiz/", include("quiz.urls")),
     path("register/", user_views.register, name="register"),
     path("accounts/", include("django.contrib.auth.urls")),
     path(
