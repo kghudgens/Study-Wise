@@ -51,9 +51,13 @@ class DetailPostView(FormMixin, DetailView):
     context_object_name = "posts"
     form_class = CommentForm
 
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
     def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
         form = self.get_form()
+        self.object = self.get_object()
         if form.is_valid():
             return self.form_valid(form)
         else:
