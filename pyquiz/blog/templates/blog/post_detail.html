@@ -3,14 +3,14 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-<div class="container">
+<div class="w-75 container">
     <h1 class="mt-5">{{ posts.title }}</h1>
     <p class="lead">{{posts.author}} {{posts.created_on}}</p>
     <p class="lead">{{posts.content}}</p>
   </div>
 
 {%if user.is_authenticated%}
-<div class="container">
+<div class="w-75 container">
   <a class="fa fa-edit" href="{%url 'post-update' posts.id%}"></a>
   <a class="fa fa-trash" href="{%url 'post-delete' posts.id%}"></a>
 </div>
@@ -18,11 +18,11 @@
 {%endif%}
 
 <!-- Comment Section -->
-
+<div class="w-75 container"></div>
 
 <!-- Comment Form -->
 <br> 
-<div id = 'comment' class="container">
+<div id = 'comment' class="w-75 container">
   <main class="form-signin">
       <form method="POST">
           {%csrf_token%}
