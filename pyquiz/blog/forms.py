@@ -15,4 +15,4 @@ class CommentForm(forms.ModelForm):
         model = Comment
         labels = {"author": "Author", "title": "Title", "content": "Comment"}
 
-        fields = ["author", "title", "content"]
+        fields = ["post", "author", "title", "content"]
