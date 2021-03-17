@@ -18,3 +18,9 @@ class QuizQuestions(models.Model):
 
     def __str__(self):
         return self.question
+
+
+class QuestionAnswer(models.Model):
+    quiz_questions = models.ForeignKey(QuizQuestions, on_delete=models.CASCADE)
+    user_answer = models.TextField()
+    correct = models.CharField(max_length=100)
