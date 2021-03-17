@@ -10,3 +10,11 @@ class Quiz(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class QuizQuestions(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    question = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.question
