@@ -8,5 +8,17 @@
       <p class="lead">Quiz Time</p>
     </div>
 
+<!--  -->
+{%for quiz in object_list%}
+<!-- Add bootstrap cards -->
+{%empty%}
+No quizzes yet
+{%endfor%}
+
+<main class="container">
+    <div class="starter-template text-center py-5 px-3">
+      <p class="lead">Do you want to create a quiz?</p>
+      <a href="#">Create Quiz</a>
+    </div>
 
   </main>{%endblock content%}
