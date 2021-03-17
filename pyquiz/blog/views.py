@@ -14,7 +14,7 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin,
 )
 from django.contrib.messages.views import SuccessMessageMixin
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -48,7 +48,9 @@ class CreateView(LoginRequiredMixin, CreateView):
 class DetailPostView(FormMixin, DetailView):
     model = Post
     template_name = "blog/post_detail.html"
-    context_object_name = "posts"
+    # BUG
+    # Trying to get the view to display both posts and comment
+    context_object_name = {"posts": Post, "comments": Comment}
     form_class = CommentForm
 
     def form_valid(self, form):
