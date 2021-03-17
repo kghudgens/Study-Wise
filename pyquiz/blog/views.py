@@ -48,9 +48,7 @@ class CreateView(LoginRequiredMixin, CreateView):
 class DetailPostView(FormMixin, DetailView):
     model = Post
     template_name = "blog/post_detail.html"
-    # BUG
-    # Trying to get the view to display both posts and comment
-    context_object_name = {"posts": Post, "comments": Comment}
+    context_object_name = "posts"
     form_class = CommentForm
 
     def form_valid(self, form):
