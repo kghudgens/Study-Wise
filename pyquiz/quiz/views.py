@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+from .models import Quiz
 
-# Create your views here.
-def quiz(request):
-    return render(request, "quiz/quiz.html")
+
+class QuizListView(ListView):
+    model = Quiz
+    template_name = "quiz/quiz.html"
