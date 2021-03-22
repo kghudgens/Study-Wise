@@ -2,20 +2,23 @@
 
 {%block content%}
 <!-- Intro to the quiz page -->
-<main class="container">
+<main class=" w-75 container">
     <div class="starter-template text-center py-5 px-3">
       <h1>PyQuiz</h1>
       <p class="lead">Quiz Time</p>
     </div>
 
-<!--  -->
-{%for quiz in object_list%}
-<!-- Add bootstrap cards -->
-{%empty%}
-No quizzes yet
-{%endfor%}
+<!--  For loop for the quizzes already created-->
+<div class="w-75 text-center container"> 
+  {%for quiz in object_list%}
+  {{quiz.title}}
+  {{quiz.subject}}
+  {%empty%}
+    <p class="lead">No quizzes yet</p> 
+  {%endfor%}
+</div>
 
-<main class="container">
+<main class="w-75 container">
     <div class="starter-template text-center py-5 px-3">
       <p class="lead">Do you want to create a quiz?</p>
       <a href="#">Create Quiz</a>
