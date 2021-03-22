@@ -6,3 +6,7 @@ from .models import Quiz
 class QuizListView(ListView):
     model = Quiz
     template_name = "quiz/quiz.html"
+
+
+def createQuiz(request):
+    return render(request, "quiz/create_quiz_form.html")
