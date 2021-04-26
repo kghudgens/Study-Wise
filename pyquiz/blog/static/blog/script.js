@@ -1,4 +1,6 @@
 'use strict'
+// Need to add what pages this refers to 
+// Pages need their own individual js scripts
 
 // Select the profile div 
 const profileForm = document.querySelector('.profile');
@@ -15,8 +17,7 @@ const commentFormDiv = document.getElementById('comment')
 // Select the comment button for the blog posts
 const commentBtn = document.getElementById('formbtn');
 
-
-// Js for the profile page
+// Function that reveals the form to the user so they can comment
 function showForm(){
     // Buttons from the profile page
     profileForm.classList.remove('hidden');
@@ -24,13 +25,10 @@ function showForm(){
 
     commentFormDiv.classList.remove('hidden')
 }
-
+// Func that allows the user to control if the form is showed or not
 function addHidden(){
     profileForm.classList.add('hidden')
 }
-
-
-// btn that hides form
 
 closeBtn.addEventListener('click', addHidden)
 
