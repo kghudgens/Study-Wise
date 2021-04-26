@@ -1,4 +1,4 @@
-'strict'
+'use strict'
 // Js for the profile page
 function showForm(){
     // Buttons from the profile page
