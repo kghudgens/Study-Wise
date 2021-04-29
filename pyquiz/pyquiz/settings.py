@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "blog.apps.BlogConfig",
     "crispy_forms",
     "user.apps.UserConfig",
-    "quiz.apps.QuizConfig",
 ]
 
 MIDDLEWARE = [
