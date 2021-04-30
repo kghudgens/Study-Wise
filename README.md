@@ -1,6 +1,6 @@
 **Version 1.0.0**
 
-# PyQuiz
+# Study Wise
 
 Full stack web application made with the Django Framework.
 
