@@ -3,27 +3,27 @@
 
 {%block content%}
 
-<div class=" container content-section">
+<div class=" w-75 container content-section">
       <h3 class="account-heading">Name: {{user.first_name}} {{user.last_name}}</h3>
       <h4 class="account-heading">Username: {{ user.username }}</h4>
       <p class="text-secondary">Email: {{ user.email }}</p>
     </div>
   </div>
 
-<div class="container">
+<div class="w-75 container">
   <button type="button" id='formbtn'class="btn btn-dark">Update Profile</button>
   <button type="button" id='closebtn'class="btn btn-dark hidden">Cancel Update</button>          
 
 </div>
 
-<div class="container profile hidden">
+<div class="w-75 container profile hidden">
     <main class="form-signin">
         <form method="POST">
             {%csrf_token%}
           <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
             {{form|crispy}}
             <br>
-          <button class="w-15 btn btn-lg btn-primary" type="submit">Update </button>          
+          <button class="w-15 btn btn-dark" type="submit">Update </button>          
           <p class="mt-5 mb-3 text-muted">©2021</p>
         </form>
       </main>
