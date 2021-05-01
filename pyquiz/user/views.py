@@ -19,12 +19,13 @@ def register(request):
 
 
 def profile(request):
+    form_class = UpdateUserForm
     if request.method == "POST":
-        user_form = UpdateUserForm(request.POST, instance=request.user)
+        user_form = form_class(request.POST, instance=request.user)
         if user_form.is_valid():
             user_form.save()
             messages.success(request, "Your profile has been updated")
             return redirect("profile")
     else:
-        form = UpdateUserForm()
+        user_form = UpdateUserForm()
     return render(request, "user/profile.html", {"user_form": user_form})
