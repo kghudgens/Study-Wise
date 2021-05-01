@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import UpdateUserForm, UpdateProfileForm
+from .models import Profile
 
 # Create your views here.
 def register(request):
@@ -32,6 +33,10 @@ def profile(request):
     else:
         user_form = UpdateUserForm()
         p_form = UpdateProfileForm()
+
+    profile_data = Profile.objects.all().filter(user=request.user)
     return render(
-        request, "user/profile.html", {"user_form": user_form, "p_form": p_form}
+        request,
+        "user/profile.html",
+        {"user_form": user_form, "p_form": p_form, "profile_data": profile_data},
     )
