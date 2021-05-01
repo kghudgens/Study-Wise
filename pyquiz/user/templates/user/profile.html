@@ -7,6 +7,12 @@
       <h3 class="account-heading">Name: {{user.first_name}} {{user.last_name}}</h3>
       <h4 class="account-heading">Username: {{ user.username }}</h4>
       <p class="text-secondary">Email: {{ user.email }}</p>
+
+      {%for profile in profile_data%}
+      {{profile.age}}
+      {%empty%}
+      empty
+      {%endfor%}
     </div>
   </div>
 
