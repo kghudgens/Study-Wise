@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .forms import UpdateUserForm
+from .forms import UpdateUserForm, UpdateProfileForm
 
 # Create your views here.
 def register(request):
@@ -20,12 +20,18 @@ def register(request):
 
 def profile(request):
     form_class = UpdateUserForm
+    p_form_class = UpdateProfileForm
     if request.method == "POST":
+        p_form = p_form_class(request.POST, instance=request.user)
         user_form = form_class(request.POST, instance=request.user)
-        if user_form.is_valid():
+        if user_form.is_valid() and p_form.is_valid():
             user_form.save()
+            p_form.save()
             messages.success(request, "Your profile has been updated")
             return redirect("profile")
     else:
         user_form = UpdateUserForm()
-    return render(request, "user/profile.html", {"user_form": user_form})
+        p_form = UpdateProfileForm()
+    return render(
+        request, "user/profile.html", {"user_form": user_form, "p_form": p_form}
+    )
