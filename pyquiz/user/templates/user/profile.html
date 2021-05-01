@@ -8,11 +8,15 @@
       <h4 class="account-heading">Username: {{ user.username }}</h4>
       <p class="text-secondary">Email: {{ user.email }}</p>
 
+<!-- Rendering data from the profile model -->
       {%for profile in profile_data%}
-      {{profile.age}}
+        {{profile.subjectOfInterest}}
+        {{profile.goal}}
+        {{profile.age}}
       {%empty%}
-      empty
+        empty
       {%endfor%}
+
     </div>
   </div>
 
