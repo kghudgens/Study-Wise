@@ -22,6 +22,7 @@
             {%csrf_token%}
           <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
             {{user_form|crispy}}
+            {{p_form| crispy}}
             <br>
           <button class="w-15 btn btn-dark" type="submit">Update </button>          
           <p class="mt-5 mb-3 text-muted">©2021</p>
