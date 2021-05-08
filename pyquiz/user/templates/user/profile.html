@@ -20,9 +20,9 @@
 
 <!-- Rendering data from the profile model -->
       {%for profile in profile_data%}
-        {{profile.subjectOfInterest}}
-        {{profile.goal}}
-        {{profile.age}}
+        <h4>Interests: {{profile.subjectOfInterest}}  </h4>
+        <h4>Goal: {{profile.goal}}</h4>
+        <h4>Age: {{profile.age}}</h4>
       {%empty%}
         empty
       {%endfor%}
