@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .forms import UpdateUserForm, UpdateProfileForm
 from .models import Profile
 
-# Create your views here.
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
