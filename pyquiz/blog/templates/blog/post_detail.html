@@ -19,11 +19,13 @@
 
 <!-- Comment Section -->
 <div class="w-75 container">
-  <h3 class="mt-5">Comments</h3>
+  <h3 class="mt-5">Conversation</h3>
   
 </div>
 
 <!-- Comment Form -->
+<!-- Check if user is authenticated  -->
+{%if user.is_authenticated%}
 <br> 
 <div id = 'comment' class="w-75 container">
   <main class="form-signin">
@@ -35,6 +37,13 @@
       </form>
     </main>
   </div>
+  {%else%}
+  <br>
+  <div class="container">
+    <h6>Please <a href="{%url 'login'%}">Log In</a> to comment</h6>
+
+  </div>
+  {%endif%}
 
 
 {%endblock content%}
