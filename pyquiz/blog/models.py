@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
+from PIL import Image
 
 
 class Post(models.Model):
@@ -15,6 +16,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post_img = models.ImageField(upload_to="images/")
 
 
 class Comment(models.Model):
