@@ -22,6 +22,9 @@ class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     post_img = models.ImageField(upload_to="images/")
 
+    def __str__(self):
+        return self.post_img
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
