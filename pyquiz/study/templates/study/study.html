@@ -9,5 +9,17 @@
   </div>
 </div>
 
-{%if user.is_authenticated %} Would you like to create a Study Guide
-{{user.first_name}} {%else%} {%endif%} {%endblock content%}
+<div class="container a">
+  {%if user.is_authenticated %}
+  <p>
+    Would you like to <a href="#"> create</a> a Study Guide {{user.first_name}}?
+  </p>
+  {%else%}
+  <p>
+    If you would like to create study guide you can
+    <a href="{%url 'login'%}"> log in</a> here.
+  </p>
+  {%endif%}
+</div>
+
+{%endblock content%}
