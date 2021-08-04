@@ -9,5 +9,5 @@
   </div>
 </div>
 
-{%if user.is_authenticated %} Would you like to create a Study Guide {%else%}
-{%endif%} {%endblock content%}
+{%if user.is_authenticated %} Would you like to create a Study Guide
+{{user.first_name}} {%else%} {%endif%} {%endblock content%}
