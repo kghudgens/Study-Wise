@@ -13,26 +13,32 @@
 </div>
 
 
-<div class=" w-75 container content-section">
-      <h3 class="account-heading">Name: {{user.first_name}} {{user.last_name}}</h3>
-      <h4 class="account-heading">Username: {{ user.username }}</h4>
+<div class=" container center">
+  <div class="center">
+    <div>
+      <h3 class="">Name: {{user.first_name}} {{user.last_name}}</h3>
+    </div>
+    <div>
+      <h4 class="">Username: {{ user.username }}</h4>
+    </div>
+    <div>
       <p class="text-secondary">Email: {{ user.email }}</p>
-
-<!-- Rendering data from the profile model -->
-      {%for profile in profile_data%}
+    </div>
+      <!-- Rendering data from the profile model -->
+    {%for profile in profile_data%}
         <h4>Interests: {{profile.subjectOfInterest}}  </h4>
         <h4>Goal: {{profile.goal}}</h4>
         <h4>Age: {{profile.age}}</h4>
-      {%empty%}
-        empty
-      {%endfor%}
-
-    </div>
+    {%empty%}
+        <p>Update your profile to display information</p>
+    {%endfor%}
   </div>
-
+</div>
+  
 <div class="w-75 container">
   <button type="button" id='formbtn'class="btn btn-dark">Update Profile</button>
-  <button type="button" id='closebtn'class="btn btn-dark hidden">Cancel Update</button>          
+  <!-- Learn to float button to the right of the screen  -->
+  <button type="button" id='closebtn'class="btn btn-dark hidden">X</button>          
 
 </div>
 
@@ -40,7 +46,7 @@
     <main class="form-signin">
         <form method="POST">
             {%csrf_token%}
-          <h1 class="h3 mb-3 fw-normal">Update Profile</h1>
+          
             {{user_form|crispy}}
             {{p_form| crispy}}
             <br>
