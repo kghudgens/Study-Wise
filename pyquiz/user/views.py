@@ -23,11 +23,15 @@ def profile(request):
     form_class = UpdateUserForm
     p_form_class = UpdateProfileForm
     if request.method == "POST":
-        p_form = p_form_class(request.POST, instance=request.user)
+        p_form = p_form_class(request.POST, instance=request.user.profile)
         user_form = form_class(request.POST, instance=request.user)
         if user_form.is_valid() and p_form.is_valid():
             user_form.save()
-            p_form.save()
+
+            instance = p_form.save(commit=True)
+            instance.user = request.user
+            instance.save()
+            # p_form.save()
             messages.success(request, "Your profile has been updated")
             return redirect("profile")
     else:
