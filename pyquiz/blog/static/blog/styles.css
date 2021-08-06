@@ -17,3 +17,16 @@ body {
   /* border: 5px solid #ffff00; */
   padding: 5px;
 }
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.button_space {
+  margin: 10px;
+}
+
+.form_space {
+  margin-top: 10px;
+}
