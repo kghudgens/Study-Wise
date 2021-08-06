@@ -13,16 +13,21 @@
 
 <!-- Form for logging in  -->
 
-<div class="container">
+<div class="container form_space">
+  <div class="container center">
   <main class="form-signin">
       <form method="POST">
           {%csrf_token%}
         <h1 class="h3 mb-3 fw-normal">Log In</h1>
           {{form|crispy}}
-        <button class="w-15 btn btn-lg btn-primary" type="submit">Log In </button>
+        <button class="w-15 btn btn-lg btn-primary button_space" type="submit">Log In </button>
         <p class="mt-5 mb-3 text-muted">©2021</p>
       </form>
     </main>
   </div>
+</div>
+
+
+
   
 {%endblock content%}
