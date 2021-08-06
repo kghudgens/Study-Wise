@@ -9,7 +9,7 @@ class UpdateUserForm(forms.ModelForm):
         labels = {
             "first_name": "First Name",
             "last_name": "Last Name",
-            "username": "User Name",
+            "username": "Username",
             "email": "Email",
         }
         fields = [
