@@ -9,17 +9,30 @@
   </div>
 </div>
 
-<div class="container a">
-  {%if user.is_authenticated %}
-  <p>
-    Would you like to <a href="#"> create</a> a Study Guide {{user.first_name}}?
-  </p>
-  {%else%}
-  <p>
-    If you would like to create study guide you can
-    <a href="{%url 'login'%}"> log in</a> here.
-  </p>
-  {%endif%}
+<div class="content center float-container">
+  <div class="float-child">
+    <h5>Your Study Guides</h5>
+
+    <div>
+      {%if user.is_authenticated %}
+      <p>
+        Would you like to <a href="{%url 'create-guide'%}"> create</a> a Study
+        Guide {{user.first_name}}?
+      </p>
+      {%else%}
+      <p>
+        If you would like to create study guide you can
+        <a href="{%url 'login'%}"> &#8853;</a> here.
+      </p>
+      {%endif%}
+    </div>
+  </div>
+
+  <div class="float-child">
+    <div>
+      <h5>Most Recent Study Guides</h5>
+    </div>
+  </div>
 </div>
 
 {%endblock content%}
