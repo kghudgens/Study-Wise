@@ -49,3 +49,8 @@ a:hover {
 .link {
   text-decoration: none;
 }
+
+.left {
+  float: left;
+  width: 33%;
+}
