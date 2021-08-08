@@ -1,27 +1,21 @@
-{%extends "blog/base.html"%}
-{% load crispy_forms_tags %}
-
-
-{%block content%}
+{%extends "blog/base.html"%} {% load crispy_forms_tags %} {%block content%}
 
 <!-- Introduction to site -->
 <main class="container">
-    <div class="starter-template text-center py-5 px-3">
-      <h1>Study Wise</h1>
-      <p class="lead">The Learner's bestfriend.</p>
-    </div>
-  </main>
-
+  <div class="starter-template text-center py-5 px-3">
+    <h1>Study Wise</h1>
+    <p class="lead">The Learner's bestfriend.</p>
+  </div>
+</main>
+<div class="container">
   <div class="container">
-    view blog 
+    <h3 class="link"><a href="{%url 'study'%}">View Blog posts </a></h3>
+    <h5>Most Recent</h5>
   </div>
 
-  <div class="container">
-    view study guides
-  </div>
+  <div class="container"><h3>View Study Guides</h3></div>
 
-  <div class="container">
-    contact me 
-  </div>
+  <div class="container"><h3>Contact Me</h3></div>
+</div>
 
 {%endblock content%}
