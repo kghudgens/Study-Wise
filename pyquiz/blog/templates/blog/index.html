@@ -7,14 +7,33 @@
     <p class="lead">The Learner's bestfriend.</p>
   </div>
 </main>
+
 <div class="container">
+  <!-- Blog Posts DIV -->
   <div class="container">
     <h3 class="link"><a href="{%url 'study'%}">View Blog posts </a></h3>
     <h5>Most Recent</h5>
+
+    {%for post in posts%}
+    <!-- The card for all post model objects -->
+    <div class="container">
+      <div class="card left" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
+          <p class="card-text">{{post.content|truncatewords:10}}</p>
+          <a href="{%url 'post-detail' post.id %}" class="card-link"
+            >Read post</a
+          >
+        </div>
+      </div>
+    </div>
   </div>
+  {%endfor%}
 
+  <!-- Study Guide DIV -->
   <div class="container"><h3>View Study Guides</h3></div>
-
+  <!-- Contact me DIV -->
   <div class="container"><h3>Contact Me</h3></div>
 </div>
 
