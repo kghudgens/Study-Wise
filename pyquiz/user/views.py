@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import UpdateUserForm, UpdateProfileForm
 from .models import Profile
+from django.apps import apps
+
+Post = apps.get_model("blog", "Post")
 
 
 def register(request):
@@ -39,8 +42,14 @@ def profile(request):
         p_form = UpdateProfileForm()
 
     profile_data = Profile.objects.all().filter(user=request.user)
+    posts = Post.objects.all()
     return render(
         request,
         "user/profile.html",
-        {"user_form": user_form, "p_form": p_form, "profile_data": profile_data},
+        {
+            "user_form": user_form,
+            "p_form": p_form,
+            "profile_data": profile_data,
+            "posts": posts,
+        },
     )
