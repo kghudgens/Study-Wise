@@ -14,12 +14,17 @@ from django.contrib.auth.mixins import (
     UserPassesTestMixin,
 )
 from django.contrib.messages.views import SuccessMessageMixin
+from django.apps import apps
 from .models import Post, Comment
 from .forms import CommentForm
 
+# guides = apps.get_model("study", "studypost")
+
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all()[:3]
+    #! Read the application page to see how to properly import
+    # guides = guides.objects.all()
     context = {"posts": posts}
     return render(request, "blog/index.html", context)
 
