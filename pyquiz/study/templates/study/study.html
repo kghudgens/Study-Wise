@@ -15,14 +15,11 @@
 
     <div>
       {%if user.is_authenticated %}
-      <p>
-        Would you like to <a href="{%url 'create-guide'%}"> create</a> a Study
-        Guide {{user.first_name}}?
-      </p>
+      <p>Create New Guide<a href="{%url 'create-guide'%}"> &#8853;</a></p>
       {%else%}
       <p>
         If you would like to create study guide you can
-        <a href="{%url 'login'%}"> &#8853;</a> here.
+        <a href="{%url 'login'%}"> Log In</a> here.
       </p>
       {%endif%}
     </div>
