@@ -7,7 +7,7 @@
     <p class="lead">The Learner's bestfriend.</p>
   </div>
 </main>
-
+<!-- Container for all content on index -->
 <div class="container">
   <!-- Blog Posts DIV -->
   <div class="container">
@@ -21,6 +21,7 @@
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{post.created_on}}</h6>
           <p class="card-text">{{post.content|truncatewords:10}}</p>
           <a href="{%url 'post-detail' post.id %}" class="card-link"
             >Read post</a
@@ -32,7 +33,26 @@
   {%endfor%}
 
   <!-- Study Guide DIV -->
-  <div class="container"><h3>View Study Guides</h3></div>
+  <div class="container">
+    <h3>View Study Guides</h3>
+    {% for guide in guides%}
+    <div class="container">
+      <div class="card left" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{guide.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{guide.author}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{guide.created_on}}</h6>
+          <p class="card-text">{{guide.content|truncatewords:10}}</p>
+          <a href="{%url 'post-detail' post.id %}" class="card-link"
+            >Read post</a
+          >
+        </div>
+      </div>
+    </div>
+    {%empty%}
+    <p>Study Guides to come</p>
+    {%endfor%}
+  </div>
   <!-- Contact me DIV -->
   <div class="container"><h3>Contact Me</h3></div>
 </div>
