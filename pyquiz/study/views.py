@@ -5,7 +5,9 @@ from .models import StudyPost
 
 
 def study(request):
-    return render(request, "study/study.html")
+    study_guides = StudyPost.objects.all()[:3]
+    context = {"study_guides": study_guides}
+    return render(request, "study/study.html", context)
 
 
 class StudyPostCreateView(LoginRequiredMixin, CreateView):
