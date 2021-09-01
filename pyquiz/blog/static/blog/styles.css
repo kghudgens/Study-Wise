@@ -54,3 +54,11 @@ a:hover {
   float: left;
   width: 33%;
 }
+
+body {
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
