@@ -7,16 +7,14 @@
     <p class="lead">The Learner's bestfriend.</p>
   </div>
 </main>
-<!-- Container for all content on index -->
-<div class="container">
+<!-- Container for blog, study post, and contact form content -->
+<div class="container parent">
   <!-- Blog Posts DIV -->
+  <h3 class="link"><a href="{%url 'blog-list'%}">Blog Post </a></h3>
   <div class="container">
-    <h3 class="link"><a href="{%url 'blog-list'%}">Blog Post </a></h3>
-    <h5>Most Recent</h5>
-
     {%for post in posts%}
     <!-- The card for all post model objects -->
-    <div class="container">
+    <div class="">
       <div class="card left" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
@@ -33,8 +31,8 @@
   {%endfor%}
 
   <!-- Study Guide DIV -->
-  <div class="container">
-    <h3>View Study Guides</h3>
+  <div class="child">
+    <h3><a href="{%url 'study'%}">Study Guides</a></h3>
     {% for guide in guides%}
     <div class="container">
       <div class="card left" style="width: 18rem">
@@ -43,9 +41,7 @@
           <h6 class="card-subtitle mb-2 text-muted">{{guide.author}}</h6>
           <h6 class="card-subtitle mb-2 text-muted">{{guide.created_on}}</h6>
           <p class="card-text">{{guide.content|truncatewords:10}}</p>
-          <a href="{%url 'post-detail' post.id %}" class="card-link"
-            >Read post</a
-          >
+          <a href="#" class="card-link">Read post</a>
         </div>
       </div>
     </div>
@@ -53,8 +49,11 @@
     <p>Study Guides to come</p>
     {%endfor%}
   </div>
+
   <!-- Contact me DIV -->
-  <div class="container"><h3>Contact Me</h3></div>
+  <!-- Creating new app for contact form -->
+  <h3>Contact Me</h3>
+  <div class=""></div>
 </div>
 
 {%endblock content%}
