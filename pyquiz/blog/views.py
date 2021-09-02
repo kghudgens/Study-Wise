@@ -18,12 +18,15 @@ from django.apps import apps
 from .models import Post, Comment
 from .forms import CommentForm
 from study.models import StudyPost
+from contact.forms import ContactForm
 
 
 def index(request):
+    # Query the entries in the db for data to display
     posts = Post.objects.all()[:3]
     guides = StudyPost.objects.all()[:3]
-    context = {"posts": posts, "guides": guides}
+    form = ContactForm()
+    context = {"posts": posts, "guides": guides, "form": form}
     return render(request, "blog/index.html", context)
 
 
