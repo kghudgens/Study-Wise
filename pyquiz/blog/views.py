@@ -17,15 +17,13 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.apps import apps
 from .models import Post, Comment
 from .forms import CommentForm
-
-# guides = apps.get_model("study", "studypost")
+from study.models import StudyPost
 
 
 def index(request):
     posts = Post.objects.all()[:3]
-    #! Read the application page to see how to properly import
-    # guides = guides.objects.all()
-    context = {"posts": posts}
+    guides = StudyPost.objects.all()[:3]
+    context = {"posts": posts, "guides": guides}
     return render(request, "blog/index.html", context)
 
 
