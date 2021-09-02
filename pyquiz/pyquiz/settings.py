@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "user.apps.UserConfig",
     "study.apps.StudyConfig",
+    "contact.apps.ContactConfig"
 ]
 
 MIDDLEWARE = [
