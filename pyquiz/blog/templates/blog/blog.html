@@ -1,41 +1,43 @@
-{%extends "blog/base.html"%}
-
-{%block content%}
+{%extends "blog/base.html"%} {%block content%}
 <div class="container">
-{% if messages %}
-<ul class="messages">
+  {% if messages %}
+  <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li>
+      {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}
+    </li>
     {% endfor %}
-</ul>
-{% endif %}
+  </ul>
+  {% endif %}
 </div>
 
 <div class="container">
-        <h1>The PyQuiz Blog</h1>
-    {%if user.is_authenticated%}
-            {{user.first_name}} do you to want <a href="{%url 'create'%}">create</a> a new post.
-    {%else%}
-           <p>If you want to create a post of your own please <a href="{%url 'login'%}">Log In</a> <p>
-    {%endif%}
+  <h1>The PyQuiz Blog</h1>
+  {%if user.is_authenticated%} {{user.first_name}} do you to want
+  <a href="{%url 'create'%}">create</a> a new post. {%else%}
+  <p>
+    If you want to create a post of your own please
+    <a href="{%url 'login'%}">Log In</a>
+  </p>
+  <p>{%endif%}</p>
 </div>
 
 {% for post in object_list%}
 
 <div class="container card">
-      <h5 class="card-header">{{post.title}}</h5>
-      <div class="card-body">
-        <h5 class="card-title">{{post.author}}</h5>
-        <h6 class="card-title text-muted">{{post.created_on}}</h6>
-        <p class="card-text">{{post.content | truncatewords:25}}</p>
-        <a href="{%url 'post-detail' post.id%}" class="btn btn-primary">View Post</a>
-      </div>
+  <h5 class="card-header">{{post.title}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{post.author}}</h5>
+    <h6 class="card-title text-muted">{{post.created_on}}</h6>
+    <p class="card-text">{{post.content | truncatewords:25}}</p>
+    <a href="{%url 'post-detail' post.id%}" class="btn btn-primary"
+      >View Post</a
+    >
+  </div>
 </div>
-    <br>
+<br />
 {%empty%}
 
-  <li>No Blog Post Yet</li>
+<li>No Blog Post Yet</li>
 
-{%endfor%}
-
-{%endblock content%}
+{%endfor%} {%endblock content%}
