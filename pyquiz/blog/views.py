@@ -25,6 +25,11 @@ def index(request):
     # Query the entries in the db for data to display
     posts = Post.objects.all()[:3]
     guides = StudyPost.objects.all()[:3]
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'contact/success.html')
     form = ContactForm()
     context = {"posts": posts, "guides": guides, "form": form}
     return render(request, "blog/index.html", context)
