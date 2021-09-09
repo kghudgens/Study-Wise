@@ -23,8 +23,8 @@ from contact.forms import ContactForm
 
 def index(request):
     # Query the entries in the db for data to display
-    posts = Post.objects.all()[:3]
-    guides = StudyPost.objects.all()[:3]
+    posts = Post.objects.all()[:4]
+    guides = StudyPost.objects.all()[:4]
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
