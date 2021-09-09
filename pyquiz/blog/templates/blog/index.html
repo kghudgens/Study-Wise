@@ -8,55 +8,67 @@
   </div>
 </main>
 <!-- Container for blog, study post, and contact form content -->
-<div class="container parent">
-  <!-- Blog Posts DIV -->
-  <h3 class="link"><a href="{%url 'blog-list'%}">Blog Post </a></h3>
-  <div class="container">
-    {%for post in posts%}
-    <!-- The card for all post model objects -->
-    <div class="">
-      <div class="card left" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">{{post.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">{{post.created_on}}</h6>
-          <p class="card-text">{{post.content|truncatewords:10}}</p>
-          <a href="{%url 'post-detail' post.id %}" class="card-link"
-            >Read post</a
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-  {%endfor%}
 
-  <!-- Study Guide DIV -->
-  <div class="child">
-    <h3><a href="{%url 'study'%}">Study Guides</a></h3>
-    {% for guide in guides%}
+<div class="container">
+  <div class="row">
+    <!-- Blog Posts DIV -->
+    <!-- <div class="row"> -->
+      <h3 class="link"><a href="{%url 'blog-list'%}">Blog Post </a></h3>
+      <div class="row">
+        {%for post in posts%}
+        <!-- The card for all post model objects -->
+        <div class="col-sm-6">
+          <div class="card" style="margin: 10px;"">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">{{post.created_on}}</h6>
+              <p class="card-text">{{post.content|truncatewords:10}}</p>
+              <a href="{%url 'post-detail' post.id %}" class="card-link"
+                >Read post</a
+              >
+            </div>
+          </div>
+        </div>
+      
+      {%endfor%}</div>
+    </div>
+
+    <!-- Study Guide DIV -->
     <div class="container">
-      <div class="card left" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">{{guide.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{guide.author}}</h6>
-          <h6 class="card-subtitle mb-2 text-muted">{{guide.created_on}}</h6>
-          <p class="card-text">{{guide.content|truncatewords:10}}</p>
-          <a href="#" class="card-link">Read post</a>
+      <h3><a href="{%url 'study'%}">Study Guides</a></h3>
+
+      <div class="row">
+        {% for guide in guides%}
+        <div class="col-sm-6">
+          <div class="card" style="margin: 10px;" >
+            <div class="card-body">
+              <h5 class="card-title">{{guide.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{guide.author}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{guide.created_on}}
+              </h6>
+              <p class="card-text">{{guide.content|truncatewords:10}}</p>
+              <a href="#" class="card-link">Read post</a>
+            </div>
+          </div>
         </div>
+        {%empty%}
+        <p>Study Guides to come</p>
+        {%endfor%}
       </div>
     </div>
-    {%empty%}
-    <p>Study Guides to come</p>
-    {%endfor%}
-  </div>
 
-  <!-- Contact me DIV -->
-  <!-- Creating new app for contact form -->
-  <h3>Contact Me</h3>
-  <div class="form_space">
-    <form method="POST">
-      {%csrf_token%} {{form|crispy}} <input type="submit" value="Submit" />
-    </form>
+    <!-- Contact me DIV -->
+    <!-- Creating new app for contact form -->
+    <div class="container row">
+      <h3>Contact Me</h3>
+      <div class="">
+        <form method="POST">
+          {%csrf_token%} {{form|crispy}} <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 
