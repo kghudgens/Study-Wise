@@ -24,7 +24,7 @@
               <h6 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
               <h6 class="card-subtitle mb-2 text-muted">{{post.created_on}}</h6>
               <p class="card-text">{{post.content|truncatewords:10}}</p>
-              <a href="{%url 'post-detail' post.id %}" class="card-link"
+              <a href="{%url 'post-detail' post.id %}" class="btn btn-primary"
                 >Read post</a
               >
             </div>
@@ -49,7 +49,7 @@
                 {{guide.created_on}}
               </h6>
               <p class="card-text">{{guide.content|truncatewords:10}}</p>
-              <a href="#" class="card-link">Read post</a>
+              <a href="#" class="btn btn-primary">Read post</a>
             </div>
           </div>
         </div>
