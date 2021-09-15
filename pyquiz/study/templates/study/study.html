@@ -26,15 +26,25 @@
   </div>
 
   <div class="float-child">
-    <div>
+    <div class="center">
       <h5>Most Recent Study Guides</h5>
     </div>
     <div>
-      <!-- !Needs styling and link -->
-      {%for sg in study_guides%} {{sg.title}} {{sg.author}} {{sg.created_on}}
-      {{sg.subject}} {{sg.content}} {{sg.photo}}
-      <img src="{{sg.photo.url}}" alt="img" />{%endfor%}
+      {%for sg in study_guides%}
+      <div class="card center" style="width: 18rem">
+        <img class="card-img-top" src="{{sg.photo.url}}" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{sg.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{sg.author}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{sg.created_on}}</h6>
+          <h6 class="card-subtitle mb-2">{{sg.subject}}</h6>
+          <p class="card-text">{{sg.content}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+      {%endfor%}
     </div>
+    <!-- Call to action -->
   </div>
 </div>
 
