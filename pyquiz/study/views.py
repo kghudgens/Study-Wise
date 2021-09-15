@@ -13,3 +13,7 @@ def study(request):
 class StudyPostCreateView(LoginRequiredMixin, CreateView):
     model = StudyPost
     fields = ["title", "subject", "photo", "content"]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
