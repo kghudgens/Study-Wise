@@ -32,7 +32,8 @@
     <div>
       <!-- !Needs styling and link -->
       {%for sg in study_guides%} {{sg.title}} {{sg.author}} {{sg.created_on}}
-      {{sg.subject}} {{sg.content}} {{sg.photo}} {%endfor%}
+      {{sg.subject}} {{sg.content}} {{sg.photo}}
+      <img src="{{sg.photo.url}}" alt="img" />{%endfor%}
     </div>
   </div>
 </div>
