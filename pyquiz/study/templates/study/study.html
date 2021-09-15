@@ -16,6 +16,9 @@
     <div>
       {%if user.is_authenticated %}
       <p>Create New Guide<a href="{%url 'create-guide'%}"> &#8853;</a></p>
+
+      <h5>Your guides</h5>
+
       {%else%}
       <p>
         If you would like to create study guide you can
@@ -39,7 +42,9 @@
           <h6 class="card-subtitle mb-2 text-muted">{{sg.created_on}}</h6>
           <h6 class="card-subtitle mb-2">{{sg.subject}}</h6>
           <p class="card-text">{{sg.content}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{%url 'studypost-detail' sg.id %}" class="btn btn-primary"
+            >Go somewhere</a
+          >
         </div>
       </div>
       {%endfor%}
