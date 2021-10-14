@@ -21,6 +21,6 @@ class BlogPostImageForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        labels = {"author": "Author", "title": "Title", "content": "Comment"}
+        labels = {"content": "Join the discussion and leave a comment!"}
 
-        fields = ["post", "author", "title", "content"]
+        fields = ["content"]
